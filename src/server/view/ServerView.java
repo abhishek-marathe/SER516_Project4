@@ -1,14 +1,18 @@
 package server.view;
 
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 import server.constants.ServerConstants;
 import server.listener.ServerListenerInterface;
 import server.services.DetectionListenerService;
 import server.services.InteractiveListenerService;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
 /**
  * The ServerView class class creates the server main window. Main frame for the server that adds the Interactive,
@@ -26,11 +30,12 @@ public class ServerView extends JFrame {
 	/**
 	 * Creates new form ServerUI.
 	 */
-	public ServerView(String type) {
+	public ServerView(InteractivePanel interactivePanel, DetectionPanel detectionPanel, ConsolePanel consolePanel) {
 		this.setTitle(ServerConstants.TITLE);
 		this.getContentPane().setBackground(Color.LIGHT_GRAY);
 		this.setResizable(true);
 		this.setBounds(100, 100, 500, 600);
+		this.setMinimumSize(new Dimension(512, 610));
 		this.getContentPane().setLayout(null);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.addWindowListener(new WindowAdapter() {
@@ -38,18 +43,12 @@ public class ServerView extends JFrame {
 				serverListenerInterface.stopServer();
 			}
 		});
-		interactivePanel = new InteractivePanel(type);
+		
+		this.interactivePanel = interactivePanel;
+		this.detectionPanel = detectionPanel;
+		this.consolePanel = consolePanel;
 		this.getContentPane().add(interactivePanel);
-
-		if(type.equals("skin"))
-			detectionPanel = new SkinDetectionPanel();
-		else if(type.equals("heart"))
-			detectionPanel = new HeartDetectionPanel();
-		else
-			detectionPanel = new FaceDetectionPanel();
 		this.getContentPane().add((Component) detectionPanel);
-
-		consolePanel = new ConsolePanel(type);
 		this.getContentPane().add(consolePanel);
 	}
 
