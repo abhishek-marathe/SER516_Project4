@@ -62,4 +62,16 @@ public class AffectiveData {
 	public void setFocus(float focus) {
 		this.focus = focus;
 	}
+
+	@Override
+	public String toString() {
+		return "AffectiveData{" +
+				"interest=" + interest +
+				", engagement=" + engagement +
+				", stress=" + stress +
+				", relaxation=" + relaxation +
+				", excitement=" + excitement +
+				", focus=" + focus +
+				'}';
+	}
 }

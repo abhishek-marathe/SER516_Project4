@@ -116,4 +116,22 @@ public class ExpressiveData {
 	public void setLookRight(boolean lookRight) {
 		this.lookRight = lookRight;
 	}
+
+	@Override
+	public String toString() {
+		return "ExpressiveData{" +
+				"raiseBrow=" + raiseBrow +
+				", furrowBrow=" + furrowBrow +
+				", smile=" + smile +
+				", clench=" + clench +
+				", smirkLeft=" + smirkLeft +
+				", smirkRight=" + smirkRight +
+				", laugh=" + laugh +
+				", winkLeft=" + winkLeft +
+				", winkRight=" + winkRight +
+				", lookLeft=" + lookLeft +
+				", lookRight=" + lookRight +
+				", blink=" + blink +
+				'}';
+	}
 }
