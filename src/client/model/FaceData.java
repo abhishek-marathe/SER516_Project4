@@ -35,4 +35,13 @@ public class FaceData {
 	public void setCounter(double counter) {
 		this.counter = counter;
 	}
+
+	@Override
+	public String toString() {
+		return "FaceData{" +
+				"counter=" + counter +
+				", affectiveData=" + affectiveData +
+				", expressiveData=" + expressiveData +
+				'}';
+	}
 }

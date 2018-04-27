@@ -146,7 +146,9 @@ public class ExpressionPlots extends JPanel {
 	 * plotExpressionGraph method adds values to the graph and plots graph
 	 */
 	public void plotExpressionGraph() {
-		if (ClientDataSingleton.getInstance().getFaceData() != null) {
+		System.out.println("----------------------------OUTSIDE plotExpression-------------------");
+		if (ClientDataSingleton.getInstance().getData().getFaceData() != null) {
+			System.out.println("----------------------------INSIDE plotExpression-------------------");
 			plotData = plotController.getExpressivePlotData();
 			blinkGraphPlot = plotGraphForFeature(plotData.get(0));
 			addGraphsToPanel(blinkPanel, blinkSplitPane, blinkGraphPlot, ClientConstants.BLINK);

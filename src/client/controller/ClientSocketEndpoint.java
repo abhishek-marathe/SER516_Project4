@@ -53,8 +53,9 @@ public class ClientSocketEndpoint {
 		System.out.println("Message:: "+message);
 		data = gson.fromJson(message, Data.class);
 		data = gson.fromJson(message, Data.class);
-		System.out.println(data);
 		ClientDataSingleton.getInstance().setData(data);
+		System.out.println("------------------------------------");
+		System.out.println(ClientDataSingleton.getInstance().getData());
 		ExpressivePlotData.getInstance().setDataToList(data.getFaceData().getExpressiveData());
 		ClientDataSingleton.getInstance().getExpressplot().plotExpressionGraph();
 		AffectivePlotData.getInstance().setDataToList(data.getFaceData().getAffectiveData(), data.getFaceData());
