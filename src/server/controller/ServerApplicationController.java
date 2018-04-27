@@ -38,7 +38,7 @@ public class ServerApplicationController {
 		ServerView serverView = CreateServerView(serverType);
 		ServerModelSingleton serverDataSingleton = ServerModelSingleton.getInstance();
 		serverDataSingleton.setData(new Data());
-		ServerSocketService serverSocketService = new ServerSocketService();
+		ServerSocketService serverSocketService = new ServerSocketService(port);
 		InteractiveListenerService interactiveListenerService = new InteractiveListenerService();
 		DetectionListenerService detectionListenerService = new DetectionListenerService();
 		new ServerMainController(serverView, serverDataSingleton, serverSocketService, interactiveListenerService,

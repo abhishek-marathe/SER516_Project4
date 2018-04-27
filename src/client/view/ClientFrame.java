@@ -24,6 +24,7 @@ public class ClientFrame extends JFrame {
 
 	EmotivePanel emotivePanel;
 	AffectivePanel affectivePanel;
+	SkinPanel skinPanel;
 	MenuBar menuBar;
 
 	public ClientFrame() {
@@ -32,8 +33,10 @@ public class ClientFrame extends JFrame {
 		JTabbedPane tabbedPane = new JTabbedPane();
 		emotivePanel = new EmotivePanel();
 		affectivePanel = new AffectivePanel();
+		skinPanel= new SkinPanel();
 		tabbedPane.addTab(EmotivePanel.TABNAME, emotivePanel);
 		tabbedPane.addTab(AffectivePanel.TABNAME, affectivePanel);
+		tabbedPane.addTab(SkinPanel.TABNAME, skinPanel);
 		tabbedPane.setBorder(new EmptyBorder(10, 10, 10, 10));
 		setLayout(new BorderLayout());
 		pack();
