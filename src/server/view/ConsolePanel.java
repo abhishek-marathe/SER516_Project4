@@ -1,12 +1,14 @@
 package server.view;
 
-import server.constants.ServerConstants;
-
-import javax.swing.*;
-import javax.swing.border.TitledBorder;
-import java.awt.*;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.border.TitledBorder;
+import server.constants.ServerConstants;
 
 /**
  * The ConsolePanel class setup attributes of log console on server frame
@@ -22,8 +24,8 @@ public class ConsolePanel extends javax.swing.JPanel {
 	JButton buttonClearLog;
 	JTextArea consoleTextArea;
 
-	public ConsolePanel(String type) {
-		this.setBackground(Color.LIGHT_GRAY);
+	public ConsolePanel(Color color) {
+		this.setBackground(color);
 		this.setBorder(new TitledBorder(null, ServerConstants.CONSOLE_LOG, TitledBorder.LEADING, TitledBorder.TOP,
 				ServerConstants.TEXT_FONT, Color.BLACK));
 		this.setBounds(11, 408, 474, 152);
@@ -46,13 +48,6 @@ public class ConsolePanel extends javax.swing.JPanel {
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		this.add(buttonClearLog);
 		this.add(scrollPane);
-		
-		if(type.equals("skin"))
-			this.setBackground(Color.GREEN);
-		else if(type.equals("heart"))
-			this.setBackground(Color.RED);
-		else
-			this.setBackground(Color.LIGHT_GRAY);
 	}
 
 	/**
