@@ -1,16 +1,20 @@
 package server.view;
 
-import server.constants.ServerConstants;
-import server.services.InteractiveListenerService;
-import server.services.ServerSocketService;
-
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import server.constants.ServerConstants;
+import server.services.InteractiveListenerService;
+import server.services.ServerSocketService;
 
 /**
  * The InteractivePanel class creates the Interactive Panel display that sets up
@@ -31,9 +35,10 @@ public class InteractivePanel extends JPanel implements ActionListener, ChangeLi
 	/**
 	 * Creates new form InteractivePanel.
 	 */
-	public InteractivePanel(String type) {
+	public InteractivePanel(Color color) {
 		this.setBorder(new TitledBorder(null, ServerConstants.INTERACTIVE, TitledBorder.LEADING, TitledBorder.TOP,
 				ServerConstants.TEXT_FONT, null));
+		this.setBackground(color);
 		this.setBounds(11, 11, 474, 104);
 		this.setLayout(null);
 		JLabel emoStateLabel = new JLabel(ServerConstants.TIME_INTERVAL);
@@ -61,13 +66,6 @@ public class InteractivePanel extends JPanel implements ActionListener, ChangeLi
 		emoStateSpinner.setBounds(324, 29, 55, 25);
 		emoStateSpinner.addChangeListener(this);
 		this.add(emoStateSpinner);
-		
-		if(type.equals("skin"))
-			this.setBackground(Color.GREEN);
-		else if(type.equals("heart"))
-			this.setBackground(Color.RED);
-		else
-			this.setBackground(Color.LIGHT_GRAY);
 	}
 
 	/**
