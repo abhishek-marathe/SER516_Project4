@@ -1,15 +1,21 @@
 package server.view;
 
-import server.constants.ServerConstants;
-import server.services.DetectionListenerService;
-
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JSpinner;
+import javax.swing.JTextField;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import server.constants.ServerConstants;
+import server.services.DetectionListenerService;
 
 /**
  * The DetectionPanel class creates the Detection Panel display that sets the
@@ -34,23 +40,23 @@ public class HeartDetectionPanel extends JPanel implements ChangeListener, Actio
 	/**
 	 * Design and component setting for the detection panel
 	 */
-	public HeartDetectionPanel() {
-		this.setBackground(Color.RED);
+	public HeartDetectionPanel(Color color) {
+		this.setBackground(color);
 		this.setBorder(new TitledBorder(null, ServerConstants.DETECTION, TitledBorder.LEADING, TitledBorder.TOP,
 				ServerConstants.TEXT_FONT, null));
 		this.setBounds(11, 130, 474, 267);
 		this.setLayout(null);
-		timeDetectionPanelSetup();
-		upperFaceDetectionPanel();
-		lowerFaceDetectionPanelSetup();
-		eyeDetectionPanelSetup();
-		performanceMetricSetup();
+		showTime();
+		addBloodPressureOperations();
+		addHeartBeatOperations();
+		bloodMetricSetup();
 	}
 
+	
 	/**
 	 * timeDetectionPanelSetup sets up the detection panel UI for the time
 	 */
-	private void timeDetectionPanelSetup() {
+	private void showTime() {
 		JLabel timeLabel = new JLabel(ServerConstants.TIME);
 		timeLabel.setFont(ServerConstants.TEXT_FONT);
 		timeLabel.setForeground(Color.WHITE);
@@ -74,42 +80,43 @@ public class HeartDetectionPanel extends JPanel implements ChangeListener, Actio
 	/**
 	 * upperFaceDetectionPanel sets up the detection panel UI for the upper face
 	 */
-	private void upperFaceDetectionPanel() {
+	private void addBloodPressureOperations() {
+		
+		JLabel bloodPressureLabel = new JLabel(ServerConstants.BP);
+		bloodPressureLabel.setFont(ServerConstants.TEXT_FONT);
+		bloodPressureLabel.setBounds(175, 61, 101, 25);
+		this.add(bloodPressureLabel);
+		
 		JLabel systolicBPLabel = new JLabel(ServerConstants.SYS_BP);
 		systolicBPLabel.setFont(ServerConstants.TEXT_FONT);
 		systolicBPLabel.setForeground(Color.WHITE);
-		systolicBPLabel.setBounds(14, 108, 200, 33);
+		systolicBPLabel.setBounds(14, 98, 200, 33);
 		this.add(systolicBPLabel);
 		systolicBPSpinner = new JSpinner();
 		systolicBPSpinner.setModel(new SpinnerNumberModel(0.00, 0.00, 1.00, 0.1));
 		systolicBPSpinner.setBackground(Color.WHITE);
-		systolicBPSpinner.setBounds(80, 113, 55, 25);
+		systolicBPSpinner.setBounds(80, 103, 55, 25);
 		systolicBPSpinner.addChangeListener(this);
 		this.add(systolicBPSpinner);
-	}
-
-	/**
-	 * lowerFaceDetectionPanelSetup sets up the detection panel UI for the lower
-	 * face
-	 */
-	private void lowerFaceDetectionPanelSetup() {
+		
 		JLabel diastolicBPLabel = new JLabel(ServerConstants.DIA_BP);
 		diastolicBPLabel.setFont(ServerConstants.TEXT_FONT);
 		diastolicBPLabel.setForeground(Color.WHITE);
-		diastolicBPLabel.setBounds(250, 108, 139, 33);
+		diastolicBPLabel.setBounds(250, 98, 139, 33);
 		this.add(diastolicBPLabel);
 		diastolicBPSpinner = new JSpinner();
 		diastolicBPSpinner.setModel(new SpinnerNumberModel(0.00, 0.00, 1.00, 0.1));
 		diastolicBPSpinner.setForeground(Color.WHITE);
-		diastolicBPSpinner.setBounds(316, 113, 52, 25);
+		diastolicBPSpinner.setBounds(316, 103, 52, 25);
 		diastolicBPSpinner.addChangeListener(this);
 		this.add(diastolicBPSpinner);
+		
 	}
 
 	/**
 	 * eyeDetectionPanelSetup sets up the detection panel UI for the eye
 	 */
-	private void eyeDetectionPanelSetup() {
+	private void addHeartBeatOperations() {
 		JLabel hearBeatLabel = new JLabel(ServerConstants.HEART_BEAT);
 		hearBeatLabel.setFont(ServerConstants.TEXT_FONT);
 		hearBeatLabel.setForeground(Color.WHITE);
@@ -127,7 +134,7 @@ public class HeartDetectionPanel extends JPanel implements ChangeListener, Actio
 	 * performanceMetricSetup sets up the detection panel UI for the performance
 	 * metric
 	 */
-	private void performanceMetricSetup() {
+	private void bloodMetricSetup() {
 		JLabel bloodMetricsLabel = new JLabel(ServerConstants.BLOOD_METRICS);
 		bloodMetricsLabel.setFont(ServerConstants.TEXT_FONT);
 		bloodMetricsLabel.setForeground(Color.WHITE);
