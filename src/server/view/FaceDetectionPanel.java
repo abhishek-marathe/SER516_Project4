@@ -1,15 +1,21 @@
 package server.view;
 
-import server.constants.ServerConstants;
-import server.services.DetectionListenerService;
-
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JSpinner;
+import javax.swing.JTextField;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import server.constants.ServerConstants;
+import server.services.DetectionListenerService;
 
 /**
  * The DetectionPanel class creates the Detection Panel display that sets the
@@ -37,8 +43,8 @@ public class FaceDetectionPanel extends JPanel implements ChangeListener, Action
 	/**
 	 * Design and component setting for the detection panel
 	 */
-	public FaceDetectionPanel() {
-		this.setBackground(Color.LIGHT_GRAY);
+	public FaceDetectionPanel(Color color) {
+		this.setBackground(color);
 		this.setBorder(new TitledBorder(null, ServerConstants.DETECTION, TitledBorder.LEADING, TitledBorder.TOP,
 				ServerConstants.TEXT_FONT, null));
 		this.setBounds(11, 130, 474, 267);
