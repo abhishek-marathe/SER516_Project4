@@ -12,6 +12,9 @@ import java.util.Arrays;
 public class SkinPlotData {
 
 	private static volatile SkinPlotData skinPlotData;
+
+	
+
 	private ArrayList<Float> fairlist = new ArrayList<>(Arrays.asList(0.0f));
 	private ArrayList<Float> darklist = new ArrayList<>(Arrays.asList(0.0f));
 	private ArrayList<Float> pinklist = new ArrayList<>(Arrays.asList(0.0f));
