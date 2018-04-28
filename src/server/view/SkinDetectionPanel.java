@@ -140,14 +140,14 @@ public class SkinDetectionPanel extends JPanel implements ChangeListener, Action
         skinTypeComboBox.setBounds(14, 163, 139, 25);
         skinTypeComboBox.addActionListener(this);
         this.add(skinTypeComboBox);
-        skinTypeActivateRadioButton = new JRadioButton(ServerConstants.ACTIVATE);
+/*        skinTypeActivateRadioButton = new JRadioButton(ServerConstants.ACTIVATE);
         skinTypeActivateRadioButton.setFont(ServerConstants.TEXT_FONT);
         skinTypeActivateRadioButton.setBackground(Color.GRAY);
         skinTypeActivateRadioButton.setForeground(Color.WHITE);
         skinTypeActivateRadioButton.setBounds(185, 164, 95, 25);
         skinTypeActivateRadioButton.addActionListener(this);
         this.add(skinTypeActivateRadioButton);
-       
+       */
     }
 
     /**
