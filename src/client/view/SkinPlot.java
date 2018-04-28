@@ -15,9 +15,18 @@ public class SkinPlot extends JPanel {
 	JPanel dustPanel = new JPanel();
 	JPanel heatPanel = new JPanel();
 	JPanel coldPanel = new JPanel();
+	JPanel normalSkinPanel = new JPanel();
+	JPanel drySkinPanel = new JPanel();
+	JPanel oilySkinPanel = new JPanel();
+	JPanel combinationSkinPanel = new JPanel();
+
 	JSplitPane dustSplitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
 	JSplitPane heatSplitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
 	JSplitPane coldSplitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
+	JSplitPane normalSkinPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
+	JSplitPane drySkinPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
+	JSplitPane oilySkinPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
+	JSplitPane combinationSkinPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
 	//private PlotController plotController = new PlotController();
 	private ArrayList<ArrayList<Float>> plotData = new ArrayList<>();
 	private ArrayList<ArrayList<Float>> inputData = new ArrayList<>();
@@ -26,7 +35,12 @@ public class SkinPlot extends JPanel {
 	private GraphPlot dustGraphPlot;
 	private GraphPlot heatGraphPlot;
 	private GraphPlot coldGraphPlot;
-	
+	private GraphPlot normalSkinGraphPlot;
+	private GraphPlot drySkinGraphPlot;
+	private GraphPlot oilySkinGraphPlot;
+	private GraphPlot combinationSkinGraphPlot;
+
+
 	public SkinPlot() {
 		this.setPreferredSize(new Dimension(500, 500));
 		addPanels();
@@ -54,12 +68,21 @@ public class SkinPlot extends JPanel {
 	 */
 	public void addPanels() {
 		this.setLayout(new GridLayout(12, 1, 1, 1));
-		setPanelsLayout(dustPanel, dustSplitPane, ClientConstants.BLINK);
-		setPanelsLayout(heatPanel, heatSplitPane, ClientConstants.CLENCH);
-		setPanelsLayout(coldPanel, coldSplitPane, ClientConstants.FURROW_BROW);
+		setPanelsLayout(dustPanel, dustSplitPane, "Dust");
+		setPanelsLayout(heatPanel, heatSplitPane, "Heat");
+		setPanelsLayout(coldPanel, coldSplitPane, "Cold");
+		setPanelsLayout(normalSkinPanel, normalSkinPane, "normalSkin");
+		setPanelsLayout(drySkinPanel, drySkinPane, "drySkin");
+		setPanelsLayout(oilySkinPanel, oilySkinPane, "oilySkin");
+		setPanelsLayout(combinationSkinPanel, combinationSkinPane, "combinationSkin");
 		this.add(dustPanel);
 		this.add(heatPanel);
 		this.add(coldPanel);
+		this.add(normalSkinPanel);
+		this.add(drySkinPanel);
+		this.add(oilySkinPanel);
+		this.add(combinationSkinPanel);
+
 		setRandomColors(3);
 	}
 

@@ -13,7 +13,7 @@ public class SkinPlotData {
 
 	private static volatile SkinPlotData skinPlotData;
 
-	
+
 
 	private ArrayList<Float> fairlist = new ArrayList<>(Arrays.asList(0.0f));
 	private ArrayList<Float> darklist = new ArrayList<>(Arrays.asList(0.0f));
@@ -24,6 +24,7 @@ public class SkinPlotData {
 	private ArrayList<Float> drylist = new ArrayList<>(Arrays.asList(0.0f));
 	private ArrayList<Float> oilylist = new ArrayList<>(Arrays.asList(0.0f));
 
+	
 	public ArrayList<Float> getFairlist() {
 		return fairlist;
 	}

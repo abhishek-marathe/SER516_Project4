@@ -13,8 +13,6 @@ public class SkinPanel extends JPanel {
 	public static final String TABNAME = "SkinPanel";
 	SkinFaceExpressions skinfaceExpressions;
 	SkinPlot skinPlots;
-	SkinAffectiveGraphPanel skinAffectiveGraphPanel;
-	//SkinAffectivePlot skinAffectivePlot;
 
 	/**
 	 * Sets up the Emotive Panel
@@ -23,8 +21,7 @@ public class SkinPanel extends JPanel {
 		setLayout(new BorderLayout());
 		skinfaceExpressions = new SkinFaceExpressions();
 		skinPlots = new SkinPlot();
-		skinAffectiveGraphPanel= new SkinAffectiveGraphPanel();
-		
+
 		/*ClientDataSingleton.getInstance().setExpressplot(skinPlots);
 		ClientDataSingleton.getInstance().setFaceExpressions(skinfaceExpressions);
 		JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
@@ -40,7 +37,6 @@ public class SkinPanel extends JPanel {
 		splitPaneV.setEnabled(false);
 		splitPaneV.setDividerSize(0);
 		splitPaneV.add(skinPlots);
-		splitPaneV.add(skinAffectiveGraphPanel);
 		
 		JSplitPane splitPaneH = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
 		
